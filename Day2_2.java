@@ -7,6 +7,9 @@ public class Day2_2 {
         System.out.println("\n");
         BubbleSort(Array);
         Print(Array);
+        System.out.println("\n");
+        SelectionSort(Array);
+        Print(Array);
     }
 
 //    Insertation Sort
@@ -48,6 +51,25 @@ public class Day2_2 {
                 break;
             }
 
+        }
+    }
+
+
+//    Selection Sort
+    public static void SelectionSort(int [] arr){
+        int l = arr.length;
+        for (int i = 0; i < l-1; i++) {
+            int minposition = i;
+            for (int j = i+1; j < l; j++) {
+                if(arr[minposition] > arr[j]){
+                    minposition = j;
+                }
+
+            }
+
+            int temp = arr[minposition];
+            arr[minposition] = arr[i];
+             arr[i] = temp;
         }
     }
 
