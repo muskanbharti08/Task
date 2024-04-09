@@ -73,6 +73,22 @@ public class Day4 {
 
 
 
+//    Count leaf nodes of the Tree
+    public static int CountLeaf(TrNode root ){
+        if(root == null){
+            return 0;
+        }
+        if(root.left == null && root.right == null){
+            return 1;
+        }
+        int left = CountLeaf(root.left);
+        int right  = CountLeaf(root.right);
+        return left+right;
+    }
+
+
+
+
 // main method
     public static void main(String[] args) {
         Day4 obj = new Day4();
@@ -84,8 +100,14 @@ public class Day4 {
         int c =  CountNodes(obj.root);
         System.out.println("The count of nodes "+ c);
 
+        int l = CountLeaf(obj.root);
+        System.out.println("The leaf nodes are "+l);
+
         int s = SumOfNodes(obj.root);
         System.out.println("The sum of all nodes "+s);
+
+        int d = diameter(obj.root);
+        System.out.println("Diameter "+ d);
     }
 
 
@@ -99,6 +121,27 @@ public class Day4 {
         int leftCount = SumOfNodes(root.left);
         int rightCount = SumOfNodes(root.right);
         return  leftCount+rightCount+root.data;
+    }
+
+
+
+
+
+
+//    Calculate the diameter
+    public static int diameter(TrNode root){
+        if(root == null){
+            return 0;
+        }
+
+        int leftHeight  = Height(root.left);
+        int rightHeight = Height(root.right);
+
+        int leftDiameter = diameter(root.left);
+        int rightDiamter = diameter(root.right);
+
+        int self = leftHeight+rightHeight;
+        return Math.max(Math.max(leftDiameter,rightDiamter),self);
     }
 
 
