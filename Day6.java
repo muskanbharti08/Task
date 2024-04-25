@@ -1,5 +1,8 @@
 public class Day6 {
 
+
+
+
     Node head;
     //  Structure of node
     class Node{
@@ -181,6 +184,11 @@ public class Day6 {
 
 
 
+
+
+
+
+    // Main method
     public static void main(String[] args) {
         Day6 obj  = new Day6();
         System.out.println("inserting First Node in singly Linked list");
